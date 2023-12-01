@@ -2,8 +2,5 @@
   "dependencies": {
     "ts-node": "^10.9.1",
     "typescript": "^5.3.2"
-  },
-  "devDependencies": {
-    "@types/line-reader": "^0.0.37"
   }
 }
