@@ -1,13 +1,19 @@
-import {eachLine} from "line-reader";
 import {getNumberFromLine} from "../get-number-from-line";
+import * as readline from "readline";
+import * as fs from "fs";
 
 const input = 'day-01/part-1/input.txt';
 
 let total: number = 0;
 
-eachLine(input , (line) => {
+const lineReader = readline.createInterface({
+    input: fs.createReadStream(input)
+});
+
+lineReader.on('line', function (line) {
     total += getNumberFromLine(line);
-},(err) => {
-    if(err) throw new Error(err.message);
+});
+
+lineReader.on('close', function () {
     console.log(total);
-})
+});
